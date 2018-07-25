@@ -2,13 +2,6 @@
 <head>
 <title>Sound Spelling</title>
 <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-<script>
-var lesson = {"cat.jpg" : ["c.mp3","a.mp3","t.mp3"], "bat.jpg" : ["b.mp3","a.mp3","t.mp3"]};
-
-function play(){
-  console.log("this does nothing right now");
-}
-</script>
 <style>
 #title {
   text-align: center;
@@ -18,11 +11,30 @@ function play(){
 }
 
 #picdiv {
-  justify-content: center;
+    display: inline;
+}
+
+#pic {
+  max-height: 60vh;
+  max-width: 50vw;
 }
 
 #choicesdiv {
   overflow: auto;
+}
+
+#answerdiv {
+  display: inline;
+}
+#answerrow td{
+  display: inline-block;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 4em;
+  border: solid black;
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 100px;
+  min-width: 100px;
 }
 
 #choicesdiv div{
@@ -43,45 +55,115 @@ function play(){
   color: blue;
 }
 
+.consonant:hover, .vowel:hover {
+    cursor: pointer;
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+}
+*{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 </style>
 </head>
 <body>
-<h1 id="title">Title</h1>
+<h1 id="title">Sound Spelling</h1>
 <br>
-<div id="picdiv"><img id="pic" src=""></div>
 <div id="answerdiv">
+  <div id="picdiv"><img id="pic" src="images/Loading_icon.gif"/></div>
+  <img src="sound.png" onclick="playword(index)">
+  <audio id="wordsound" src=""></audio>
   <table id="answertable">
   <tr id="answerrow"></tr>
   </table>
 </div>
+<br>
 <div id="choicesdiv">
-    <div id="a" class="vowel">a<audio id="a" src="sounds/a.mp3"></audio></div>
-    <div id="b" class="consonant">b<audio id="b" src="sounds/b.mp3"></audio></div>
-    <div id="c" class="consonant">c<audio id="c" src="sounds/c.mp3"></audio></div>
-    <div id="d" class="consonant">d<audio id="d" src="sounds/d.mp3"></audio></div>
-    <div id="e" class="vowel">e<audio id="e" src="sounds/e.mp3"></audio></div>
-    <div id="f" class="consonant">f<audio id="f" src="sounds/f.mp3"></audio></div>
-    <div id="g" class="consonant">g<audio id="g" src="sounds/g.mp3"></audio></div>
-    <div id="h" class="consonant">h<audio id="h" src="sounds/h.mp3"></audio></div>
-    <div id="i" class="vowel">i<audio id="i" src="sounds/i.mp3"></audio></div>
-    <div id="j" class="consonant">j<audio id="j" src="sounds/j.mp3"></audio></div>
-    <div id="k" class="consonant">k<audio id="k" src="sounds/k.mp3"></audio></div>
-    <div id="l" class="consonant">l<audio id="l" src="sounds/l.mp3"></audio></div>
-    <div id="m" class="consonant">m<audio id="m" src="sounds/m.mp3"></audio></div>
-    <div id="n" class="consonant">n<audio id="n" src="sounds/n.mp3"></audio></div>
-    <div id="o" class="vowel">o<audio id="o" src="sounds/o.mp3"></audio></div>
-    <div id="p" class="consonant">p<audio id="p" src="sounds/p.mp3"></audio></div>
-    <div id="q" class="consonant">q<audio id="q" src="sounds/q.mp3"></audio></div>
-    <div id="r" class="consonant">r<audio id="r" src="sounds/r.mp3"></audio></div>
-    <div id="s" class="consonant">s<audio id="s" src="sounds/s.mp3"></audio></div>
-    <div id="t" class="consonant">t<audio id="t" src="sounds/t.mp3"></audio></div>
-    <div id="u" class="vowel">u<audio id="u" src="sounds/u.mp3"></audio></div>
-    <div id="v" class="consonant">v<audio id="v" src="sounds/v.mp3"></audio></div>
-    <div id="w" class="consonant">w<audio id="w" src="sounds/w.mp3"></audio></div>
-    <div id="x" class="consonant">x<audio id="x" src="sounds/x.mp3"></audio></div>
-    <div id="y" class="consonant">y<audio id="y" src="sounds/y.mp3"></audio></div>
-    <div id="z" class="consonant">z<audio id="z" src="sounds/z.mp3"></audio></div>
+    <div id="a" onclick="play(this.id)" class="vowel">a<audio id="audio_a" src="sounds/a.mp3" preload></audio></div>
+    <div id="b" onclick="play(this.id)" class="consonant">b<audio id="audio_b" src="sounds/b.mp3" preload></audio></div>
+    <div id="c" onclick="play(this.id)" class="consonant">c<audio id="audio_c" src="sounds/c.mp3" preload></audio></div>
+    <div id="d" onclick="play(this.id)" class="consonant">d<audio id="audio_d" src="sounds/d.mp3" preload></audio></div>
+    <div id="e" onclick="play(this.id)" class="vowel">e<audio id="audio_e" src="sounds/e.mp3" preload></audio></div>
+    <div id="f" onclick="play(this.id)" class="consonant">f<audio id="audio_f" src="sounds/f.mp3" preload></audio></div>
+    <div id="g" onclick="play(this.id)" class="consonant">g<audio id="audio_g" src="sounds/g.mp3" preload></audio></div>
+    <div id="h" onclick="play(this.id)" class="consonant">h<audio id="audio_h" src="sounds/h.mp3" preload></audio></div>
+    <div id="i" onclick="play(this.id)" class="vowel">i<audio id="audio_i" src="sounds/i.mp3" preload></audio></div>
+    <div id="j" onclick="play(this.id)" class="consonant">j<audio id="audio_j" src="sounds/j.mp3" preload></audio></div>
+    <div id="k" onclick="play(this.id)" class="consonant">k<audio id="audio_k" src="sounds/k.mp3" preload></audio></div>
+    <div id="l" onclick="play(this.id)" class="consonant">l<audio id="audio_l" src="sounds/l.mp3" preload></audio></div>
+    <div id="m" onclick="play(this.id)" class="consonant">m<audio id="audio_m" src="sounds/m.mp3" preload></audio></div>
+    <div id="n" onclick="play(this.id)" class="consonant">n<audio id="audio_n" src="sounds/n.mp3" preload></audio></div>
+    <div id="o" onclick="play(this.id)" class="vowel">o<audio id="audio_o" src="sounds/o.mp3" preload></audio></div>
+    <div id="p" onclick="play(this.id)" class="consonant">p<audio id="audio_p" src="sounds/p.mp3" preload></audio></div>
+    <div id="q" onclick="play(this.id)" class="consonant">q<audio id="audio_q" src="sounds/q.mp3" preload></audio></div>
+    <div id="r" onclick="play(this.id)" class="consonant">r<audio id="audio_r" src="sounds/r.mp3" preload></audio></div>
+    <div id="s" onclick="play(this.id)" class="consonant">s<audio id="audio_s" src="sounds/s.mp3" preload></audio></div>
+    <div id="t" onclick="play(this.id)" class="consonant">t<audio id="audio_t" src="sounds/t.mp3" preload></audio></div>
+    <div id="u" onclick="play(this.id)" class="vowel">u<audio id="audio_u" src="sounds/u.mp3" preload></audio></div>
+    <div id="v" onclick="play(this.id)" class="consonant">v<audio id="audio_v" src="sounds/v.mp3" preload></audio></div>
+    <div id="w" onclick="play(this.id)" class="consonant">w<audio id="audio_w" src="sounds/w.mp3" preload></audio></div>
+    <div id="x" onclick="play(this.id)" class="consonant">x<audio id="audio_x" src="sounds/x.mp3" preload></audio></div>
+    <div id="y" onclick="play(this.id)" class="consonant">y<audio id="audio_y" src="sounds/y.mp3" preload></audio></div>
+    <div id="z" onclick="play(this.id)" class="consonant">z<audio id="audio_z" src="sounds/z.mp3" preload></audio></div>
 
 </div>
+<script>
+var lesson = {"images/cat.jpg" : ["c.mp3","a.mp3","t.mp3"], "images/bat.jpg" : ["b.mp3","a.mp3","t.mp3"]};
+var index = 0;
+function play(id){
+  var text = document.getElementById(id);
+  var sound = document.getElementById("audio_" + id);
+  sound.play();
+}
+
+function loadpic(index){
+  var item = Object.keys(lesson)[index];
+  var pic = document.getElementById("pic");
+  // console.log(pic);
+  pic.src = item;
+}
+
+function createanswerboxes(index){
+  var item = Object.keys(lesson)[index];
+  for (letter in lesson[item]){
+    console.log(lesson[item][letter]);
+    var box = document.createElement("td");
+    box.id = lesson[item][letter];
+    box.addEventListener("click", function(){play(this.id.replace(".mp3",""))}, false);
+    document.getElementById("answerrow").appendChild(box);
+
+  }
+}
+
+function playword(index){
+  var item = Object.keys(lesson)[index];
+  var wordsound = item.replace("images/","wordsounds/").replace(".jpg",".mp3").replace(".gif",".mp3").replace(".png",".mp3");
+  document.getElementById("wordsound").src = wordsound;
+  document.getElementById("wordsound").autoplay = true;
+  document.getElementById("wordsound").load();
+  // play("wordsound");
+}
+
+function loadanswer(index){
+  var item = Object.keys(lesson)[index];
+  var word = item.replace("images/","").replace(".jpg","").replace(".gif","").replace(".png","");
+  console.log(word);
+  createanswerboxes(index)
+  playword(index);
+}
+
+function onload(){
+  loadpic(index);
+  loadanswer(index);
+}
+
+window.onload = onload();
+</script>
 </body>
 </html>
