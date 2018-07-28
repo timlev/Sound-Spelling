@@ -167,9 +167,9 @@ function onload(){
 
 window.onload = onload();
 </script>
-<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-<script src="jquery.ui.touch-punch.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"</script> -->
+<script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="jquery-ui.min.js"></script>
 <script>
 
 $(document).ready(function(){
@@ -179,6 +179,12 @@ $(function() {
   // makeBlankTable(lesson);
   // $(".source").on("dragstart", tapHandler );
   $( ".source" ).draggable({ revert: "invalid", scroll: false});
+  // var sources = document.getElementsByClassName("source");
+  // for (var s in sources){
+  //   sources[s].setAttribute("draggable","true");
+  // }
+  // console.log(sources);
+  // $(".source").setAttribute("draggable","true");
   $( ".destination" ).droppable({
     drop: function( event, ui ) {
       // var dragged_category = ui.draggable.attr("name").split(",")[0];
@@ -211,12 +217,11 @@ $(function() {
 
     }
   });
-});
 // $("#menu").click(function(){
 //     window.location.href="drag_n_drop.html";
 // })
-});
-
+})
+})
     var score = 0;
     var moves = 0;
 </script>
