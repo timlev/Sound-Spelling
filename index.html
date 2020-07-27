@@ -24,10 +24,10 @@
 }
 
 #answerdiv {
-  display: inline;
+  display: flex-inline;
 }
 #answerrow td{
-  display: inline-block;
+  display: flex-inline;
   font-family: 'Didact Gothic', sans-serif;
   font-size: 4em;
   border: solid black;
@@ -36,6 +36,7 @@
   min-height: 100px;
   min-width: 100px;
   background: white;
+  z-index: -1;
 }
 
 #choicesdiv div{
@@ -46,6 +47,7 @@
   border-radius: 10px;
   padding: 10px;
   background: white;
+  z-index: 1;
 }
 
 .vowel {
