@@ -35,6 +35,7 @@ function createanswerboxes(index){
 }
 
 function hard_mode_toggle(){
+    playword(index);
     if (hard_mode === false){
         hard_mode = true;
         $(".destination").off("click", play_answer);
