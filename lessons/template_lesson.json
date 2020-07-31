@@ -1,1 +1,4 @@
-var lesson = {"images/cat.jpg" : ["c.mp3","a.mp3","t.mp3"], "images/bat.jpg" : ["b.mp3","a.mp3","t.mp3"]};
+var lesson = {
+  "images/cat.jpg": ["c.mp3", "a.mp3", "t.mp3"],
+  "images/bat.jpg": ["b.mp3", "a.mp3", "t.mp3"]
+};
