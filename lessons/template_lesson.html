@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Sound Spelling</title>
+<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+<link rel="stylesheet" href="../css.css">
+</head>
+<body>
+<h1 id="title">Sound Spelling</h1>
+<br>
+<button id="hard_mode_button" onclick="hard_mode_toggle()">Hard Mode</button>
+<div id="answerdiv">
+  <div id="picdiv"><img id="pic" src="../images/Loading_icon.gif"/></div>
+  <img src="../images/sound.png" onclick="playword(index)">
+  <audio id="wordsound" src=""></audio>
+</div>
+<table><tr id="answerrow"></tr></table>
+<br>
+<div id="choicesdiv">
+</div>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"</script> -->
+<script src="../jquery-1.7.2.min.js"></script>
+<script src="../jquery-ui.min.js"></script>
+<script src="../jquery.ui.touch-punch.min.js"></script>
+<script src="../script.js"></script>
+<script src="template_lesson.json"></script>
+
+</body>
+</html>
