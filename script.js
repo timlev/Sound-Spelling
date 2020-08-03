@@ -34,29 +34,24 @@ function createanswerboxes(index) {
   }
 }
 
-function hard_mode_toggle() {
-  playword(index);
-  if (hard_mode === false) {
-    hard_mode = true;
-    $(".destination").off("click", play_answer);
-    document.getElementById("hard_mode_button").innerText = "Easy Mode";
-  } else {
-    hard_mode = false;
-    $(".destination").on("click", play_answer);
-    document.getElementById("hard_mode_button").innerText = "Hard Mode";
-
-  }
-}
 
 function hard_mode_check(){
   var hm = document.getElementById("hard_mode_button").checked;
   if (hm === true){
-    $(".destination").off("click", play_answer);
+    for (var i = 0; i < document.querySelectorAll(".destination").length; i++){
+      document.querySelectorAll(".destination")[i].removeEventListener("click",play_answer);
+    }
+    //~ $(".destination").off("click", play_answer);
+    //~ all_selector_remove_event(".destinations","click", play_answer);
   }
   else {
-    $(".destination").on("click", play_answer);
+    for (var i = 0; i < document.querySelectorAll(".destination").length; i++){
+      document.querySelectorAll(".destination")[i].addEventListener("click",play_answer);
+    }
+    //~ $(".destination").on("click", play_answer);
+    //~ all_selector_add_event(".destinations","click", play_answer);
   }
-}  
+}
 
 function playword(index) {
   var item = Object.keys(lesson)[index];
@@ -94,60 +89,163 @@ function winning() {
   document.getElementById("wordsound").play();
 }
 
+function all_selector_set_attr(selector, attributes){
+  //~ for (var i = 0; i < document.querySelectorAll(selector).length; i++){
+    //~ document.querySelectorAll(selector)[i].action();
+  for (var i = 0; i < document.querySelectorAll(selector).length; i++){
+    for (var a = 0; a < attributes.length; a++){
+      document.querySelectorAll(selector)[i].setAttribute(attributes[a][0],attributes[a][1]);
+    }
+  }
+  //~ var selectedElements = document.querySelectorAll(selector);
+  //~ for (attr in attributes){
+    //~ for (element in selectedElements){
+      //~ element.setAttribute(attributes[attr][0], attributes[attr][1]);
+    //~ }
+  //~ }
+}
+
+function all_selector_add_event(selector, listener_event, listener_function){
+  //~ var selectedElements = document.querySelectorAll(selector);
+  //~ console.log(selectedElements);
+  // console.log(document.querySelectorAll(selector));
+  for (var i = 0; i < document.querySelectorAll(selector).length; i++){
+    document.querySelectorAll(selector)[i].addEventListener(listener_event,listener_function);
+  }
+  //~ for (element in selectedElements){
+    //~ element.addEventListener(listener_event, listener_function);
+  //~ }
+}
+
+function all_selector_remove_event(selector, listener_event, listener_function){
+  for (var i = 0; i < document.querySelectorAll(selector).length; i++){
+    document.querySelectorAll(selector)[i].removeEventListener(listener_event,listener_function);
+  }
+}
+
+// function drag_handler(ev) {
+//  console.log("Drag");
+// }
+//
+// function dragstart_handler(ev) {
+//  console.log("dragStart");
+//  ev.dataTransfer.dropEffect = "move";
+//  // Add different types of drag data
+// ev.dataTransfer.setData("text/plain", ev.target.innerText);
+// ev.dataTransfer.setData("text/html", ev.target.outerHTML);
+// ev.dataTransfer.setData("text/uri-list", ev.target.ownerDocument.location.href);
+// }
+//
+// function dragover_handler(ev) {
+//  ev.preventDefault();
+//  ev.dataTransfer.dropEffect = "move";
+// }
+// function drop_handler(ev) {
+//  ev.preventDefault();
+//  // Get the id of the target and add the moved element to the target's DOM
+//  var data = ev.dataTransfer.getData("text/plain");
+//  ev.target.appendChild(document.getElementById(data));
+// }
+function allowDrop(ev){
+  if (ev.dataTransfer.getData("text") === ev.target.id.replace(".mp3","")){
+    ev.preventDefault();
+  ev.preventDefault();
+}}
+
+function drag(ev){
+  ev.dataTransfer.setData("text",ev.target.id);
+}
+
+function drop(ev){
+  console.log(ev.dataTransfer.getData("text"));
+  console.log(ev.target.id.replace(".mp3",""));
+  if (ev.dataTransfer.getData("text") === ev.target.id.replace(".mp3","")){
+    console.log(ev.target.id);
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
+}
+// function dragstart_handler(ev) {
+//  // Add the target element's id to the data transfer object
+//  ev.dataTransfer.setData("application/my-app", ev.target.id);
+//  ev.dataTransfer.dropEffect = "move";
+// }
+// function dragover_handler(ev) {
+//  ev.preventDefault();
+//  ev.dataTransfer.dropEffect = "move";
+// }
+//
+// function drop_handler(ev) {
+//  ev.preventDefault();
+//  // Get the id of the target and add the moved element to the target's DOM
+//  var data = ev.dataTransfer.getData("id");
+//  ev.target.appendChild(document.getElementById(data));
+// }
+
 function setup_draggable() {
   var score = 0;
   var words_remaining = 0;
   hard_mode_check();
-  $(".source").draggable({
-    revert: "invalid",
-    zIndex: 20,
-    scroll: false,
-    helper: function() {
-      $(this.parentElement).append($(this).clone().attr('id', 'itWorks'))
-      return $("#itWorks");
-    }
-  });
-  $(".destination").droppable({
-    drop: function(event, ui) {
-      var dragged_category = ui.draggable.attr("id");
-      var dropped_category = $(this).attr("id").replace(".mp3", "");
-      console.log(dragged_category);
-      console.log(dropped_category);
-      if (dragged_category == dropped_category) {
-        ui.draggable.draggable("disable");
-        $(this).css({
-          "background-color": "#70db70"
-        });
-        $(this).html(ui.draggable.html());
-        ui.draggable.hide();
-        score += 1;
-        $(this).droppable({
-          disabled: true
-        });
-        lettersremaining -= 1;
-        console.log(lettersremaining);
-        moves += 1;
-        $("#status").text("Current score: " + score + " Words remaining: " + words_remaining);
-        //Word is complete
-        if (lettersremaining == 0) {
-          winning();
-          console.log("Finished!");
-          index += 1;
-          setTimeout(function() {
-            redraw_lesson();
-            setup_draggable();
-          }, 2000);
-        }
-      } else {
-        ui.draggable.draggable("option", "revert", true);
-        moves += 1;
+  var draggable_attributes = [["draggable", "true"]];
+  //,[ "revert", "invalid"],[ "zIndex" , 20],[ "scroll" , false],[ "helper" , 'function() {this.parentElement.append(this.clone().attr("id","itWorks")); return document.getElementById("itWorks");}']];
+  all_selector_set_attr(".source", draggable_attributes);
+  all_selector_add_event(".source","dragstart", drag);
+  //$(".source").draggable({
+    //revert: "invalid",
+    //zIndex: 20,
+    //scroll: false,
+    //helper: function() {
+      //$(this.parentElement).append($(this).clone().attr('id', 'itWorks'))
+      //return $("#itWorks");
+    //}
+  //});
+  all_selector_set_attr(".destination",[["ondragover","allowDrop(event)"], ["ondrop","drop(event)"]]);
+  // all_selector_add_event(".destination", "dragOver", allowDrop);
+  // all_selector_add_event(".destination","drop",drop);
+  // var droppable_attributes = [["ondrop", drop_handler]];
+  // all_selector_set_attr(".destination", droppable_attributes);
+  //~ $(".destination").droppable({
+    //~ drop: function(event, ui) {
+      //~ var dragged_category = ui.draggable.attr("id");
+      //~ var dropped_category = $(this).attr("id").replace(".mp3", "");
+      //~ console.log(dragged_category);
+      //~ console.log(dropped_category);
+      //~ if (dragged_category == dropped_category) {
+        //~ ui.draggable.draggable("disable");
+        //~ $(this).css({
+          //~ "background-color": "#70db70"
+        //~ });
+        //~ $(this).html(ui.draggable.html());
+        //~ ui.draggable.hide();
+        //~ score += 1;
+        //~ $(this).droppable({
+          //~ disabled: true
+        //~ });
+        //~ lettersremaining -= 1;
+        //~ console.log(lettersremaining);
+        //~ moves += 1;
+        //~ $("#status").text("Current score: " + score + " Words remaining: " + words_remaining);
+        //~ //Word is complete
+        //~ if (lettersremaining == 0) {
+          //~ winning();
+          //~ console.log("Finished!");
+          //~ index += 1;
+          //~ setTimeout(function() {
+            //~ redraw_lesson();
+            //~ setup_draggable();
+          //~ }, 2000);
+        //~ }
+      //~ } else {
+        //~ ui.draggable.draggable("option", "revert", true);
+        //~ moves += 1;
 
-      }
-    }
-  })
+      //~ }
+    //~ }
+  //~ })
 };
 
-$(document).ready(function() {
+window.addEventListener('DOMContentLoaded', function() {
   onload();
   setup_draggable();
 })
