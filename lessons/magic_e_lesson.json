@@ -1,0 +1,4 @@
+var lesson = {
+  "images/cane.jpg": ["c.mp3", "a_long.mp3", "n.mp3","magic_e"],
+  "images/can.jpg": ["c.mp3", "a.mp3", "n.mp3"]
+};

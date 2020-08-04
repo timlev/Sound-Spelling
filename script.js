@@ -87,6 +87,21 @@ function redraw_lesson() {
   hard_mode_check();
   var choiceboxtemplate = '<div id="a" onclick="play_choice(this.id)" class="vowel source">a<audio id="audio_a" src="../sounds/a.mp3" preload></audio></div><div id="b" onclick="play_choice(this.id)" class="consonant source">b<audio id="audio_b" src="../sounds/b.mp3" preload></audio></div><div id="c" onclick="play_choice(this.id)" class="consonant source">c<audio id="audio_c" src="../sounds/c.mp3" preload></audio></div><div id="d" onclick="play_choice(this.id)" class="consonant source">d<audio id="audio_d" src="../sounds/d.mp3" preload></audio></div><div id="e" onclick="play_choice(this.id)" class="vowel source">e<audio id="audio_e" src="../sounds/e.mp3" preload></audio></div><div id="f" onclick="play_choice(this.id)" class="consonant source">f<audio id="audio_f" src="../sounds/f.mp3" preload></audio></div><div id="g" onclick="play_choice(this.id)" class="consonant source">g<audio id="audio_g" src="../sounds/g.mp3" preload></audio></div><div id="h" onclick="play_choice(this.id)" class="consonant source">h<audio id="audio_h" src="../sounds/h.mp3" preload></audio></div><div id="i" onclick="play_choice(this.id)" class="vowel source">i<audio id="audio_i" src="../sounds/i.mp3" preload></audio></div><div id="j" onclick="play_choice(this.id)" class="consonant source">j<audio id="audio_j" src="../sounds/j.mp3" preload></audio></div><div id="k" onclick="play_choice(this.id)" class="consonant source">k<audio id="audio_k" src="../sounds/k.mp3" preload></audio></div><div id="l" onclick="play_choice(this.id)" class="consonant source">l<audio id="audio_l" src="../sounds/l.mp3" preload></audio></div><div id="m" onclick="play_choice(this.id)" class="consonant source">m<audio id="audio_m" src="../sounds/m.mp3" preload></audio></div><div id="n" onclick="play_choice(this.id)" class="consonant source">n<audio id="audio_n" src="../sounds/n.mp3" preload></audio></div><div id="o" onclick="play_choice(this.id)" class="vowel source">o<audio id="audio_o" src="../sounds/o.mp3" preload></audio></div><div id="p" onclick="play_choice(this.id)" class="consonant source">p<audio id="audio_p" src="../sounds/p.mp3" preload></audio></div><div id="q" onclick="play_choice(this.id)" class="consonant source">q<audio id="audio_q" src="../sounds/q.mp3" preload></audio></div><div id="r" onclick="play_choice(this.id)" class="consonant source">r<audio id="audio_r" src="../sounds/r.mp3" preload></audio></div><div id="s" onclick="play_choice(this.id)" class="consonant source">s<audio id="audio_s" src="../sounds/s.mp3" preload></audio></div><div id="t" onclick="play_choice(this.id)" class="consonant source">t<audio id="audio_t" src="../sounds/t.mp3" preload></audio></div><div id="u" onclick="play_choice(this.id)" class="vowel source">u<audio id="audio_u" src="../sounds/u.mp3" preload></audio></div><div id="v" onclick="play_choice(this.id)" class="consonant source">v<audio id="audio_v" src="../sounds/v.mp3" preload></audio></div><div id="w" onclick="play_choice(this.id)" class="consonant source">w<audio id="audio_w" src="../sounds/w.mp3" preload></audio></div><div id="x" onclick="play_choice(this.id)" class="consonant source">x<audio id="audio_x" src="../sounds/x.mp3" preload></audio></div><div id="y" onclick="play_choice(this.id)" class="consonant source">y<audio id="audio_y" src="../sounds/y.mp3" preload></audio></div><div id="z" onclick="play_choice(this.id)" class="consonant source">z<audio id="audio_z" src="../sounds/z.mp3" preload></audio></div>';
   document.getElementById("choicesdiv").innerHTML = choiceboxtemplate;
+  magic_e();
+}
+function magic_e(){
+  console.log("Lesson index: " + lesson[Object.keys(lesson)[index]]);
+  console.log(Object.values(lesson)[index].includes("magic_e"));
+  if (Object.values(lesson)[index].includes("magic_e")){
+    console.log("Has magic e");
+  }
+  //Change vowel sounds to long vowel sounds and removes sound from e
+  //highlight e if 3 wrong guesses on magic e
+  
+}
+
+function vowel_digraph(){
+  //Implement way to deal with vowel digraphs
 }
 
 function winning() {
