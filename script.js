@@ -9,7 +9,7 @@ function play_choice(id) {
 }
 
 function play_answer(event) {
-  var sound = "audio_" + event.target.id.replace(".mp3", "");
+  var sound = "audio_" + event.target.id.replace(".mp3", "").replace("long_","");
   document.getElementById(sound).play();
 }
 
@@ -56,7 +56,7 @@ function hard_mode_check(){
   else {
     $(".destination").on("click", play_answer);
   }
-}  
+}
 
 function playword(index) {
   var item = Object.keys(lesson)[index];
@@ -94,14 +94,21 @@ function magic_e(){
   console.log(Object.values(lesson)[index].includes("magic_e"));
   if (Object.values(lesson)[index].includes("magic_e")){
     console.log("Has magic e");
+    //Change vowel sounds to long vowel sounds and removes sound from e
+    document.getElementById("audio_e").src = "";
+    document.getElementById("audio_a").src = "../sounds/long_a.mp3";
+    document.getElementById("audio_i").src = "../sounds/long_i.mp3";
+    document.getElementById("audio_o").src = ""; //oo or oa? "../sounds/long_oo.mp3" "../sounds/long_o.mp3"
+    document.getElementById("audio_u").src = "../sounds/long_u.mp3";
+    //highlight e if 3 wrong guesses on magic e
   }
-  //Change vowel sounds to long vowel sounds and removes sound from e
-  //highlight e if 3 wrong guesses on magic e
-  
+
 }
 
 function vowel_digraph(){
   //Implement way to deal with vowel digraphs
+  var digrapghs = '<div id="ee" onclick="play_choice(this.id)" class="vowel source">ee<audio id="audio_ee" src="../sounds/long_e.mp3" preload></audio></div>';
+  document.getElementById("choicesdiv").insert(0,digraphs);
 }
 
 function winning() {
@@ -118,14 +125,14 @@ function setup_draggable() {
     zIndex: 20,
     scroll: false,
     helper: function() {
-      $(this.parentElement).append($(this).clone().attr('id', 'itWorks'))
+      $(this.parentElement).append($(this).clone().attr('id', 'itWorks'));
       return $("#itWorks");
     }
   });
   $(".destination").droppable({
     drop: function(event, ui) {
       var dragged_category = ui.draggable.attr("id");
-      var dropped_category = $(this).attr("id").replace(".mp3", "");
+      var dropped_category = $(this).attr("id").replace(".mp3", "").replace("long_","").replace("magic_","");
       console.log(dragged_category);
       console.log(dropped_category);
       if (dragged_category == dropped_category) {
@@ -159,12 +166,12 @@ function setup_draggable() {
 
       }
     }
-  })
-};
+  });
+}
 
 $(document).ready(function() {
   onload();
   setup_draggable();
-})
+});
 var score = 0;
 var moves = 0;
