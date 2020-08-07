@@ -22,7 +22,7 @@ function loadpic(index) {
 
 function createanswerboxes(index) {
   var item = Object.keys(lesson)[index];
-  for (letter in lesson[item]) {
+  for (var letter in lesson[item]) {
     lettersremaining += 1;
     console.log(lesson[item][letter]);
     var box = document.createElement("td");
