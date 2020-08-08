@@ -112,7 +112,7 @@ function vowel_digraph(){
     item = digraphs[item];
     console.log(item);
     console.log(Object.values(lesson)[index]);
-    if (Object.values(lesson)[index].includes(item + ".mp3")){
+    // if (Object.values(lesson)[index].includes(item + ".mp3")){
       var digraph_tag = document.createElement("div");
       digraph_tag.id = item;
       digraph_tag.setAttribute("class", "digraph vowel source");
@@ -127,7 +127,7 @@ function vowel_digraph(){
       // digraphs_tags.replace("ea",item);
       console.log(digraph_tag);
       document.getElementById("choicesdiv").appendChild(digraph_tag);
-    }
+    // }
   }
   //Implement way to deal with consonant digraphs
 }
