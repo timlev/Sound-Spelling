@@ -109,16 +109,24 @@ function magic_e(){
 function vowel_digraph(){
   var digraphs = ["ae","ee","ea"];
   for (var item in digraphs){
-    if (Object.values(lesson)[index].includes(item)){
-      var digraph_tag = document.createElement("div", {id : item});
+    item = digraphs[item];
+    console.log(item);
+    console.log(Object.values(lesson)[index]);
+    if (Object.values(lesson)[index].includes(item + ".mp3")){
+      var digraph_tag = document.createElement("div");
+      digraph_tag.id = item;
       digraph_tag.setAttribute("class", "digraph vowel source");
       digraph_tag.innerText = item;
-      var digraph_audio = document.createElement("audio",{id : "audio_" + item, src : "../sounds/" + item + ".mp3", preload: true});
+      var digraph_audio = document.createElement("audio");
+      digraph_audio.id = "audio_" + item;
+      digraph_audio.src = "../sounds/" + item + ".mp3";
+      digraph_audio.preload = "auto";
       digraph_tag.appendChild(digraph_audio);
+      $(digraph_tag).on("click", play_answer);
       // var digrapghs_tags = '<div id="ea" onclick="play_choice(this.id)" class="digraph vowel source">ea<audio id="audio_ea" src="../sounds/ea.mp3" preload></audio></div>';
       // digraphs_tags.replace("ea",item);
       console.log(digraph_tag);
-      document.getElementById("choicesdiv").insert(0,digraph_tag);
+      document.getElementById("choicesdiv").appendChild(digraph_tag);
     }
   }
   //Implement way to deal with consonant digraphs
