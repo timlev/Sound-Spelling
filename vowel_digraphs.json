@@ -1,0 +1,8 @@
+var vowel_digraph = {
+    "long_a" : {"ai": ["bait","brain","fail","maid","paid","praise","wait","raise"],
+                "ay" : ["bay","pay","say","way"]},
+    "long_e" : {"ea" : ["bean","cheat","dream","each","heal","lead","leave","mean","reach","speak","team","treat"],
+                "ee" : ["bee","deep","feed","feel","free","need","see","seed","steep","tree"]},
+    "long_o" : {"oo" : ["food","room","soon","too","tool","zoo"],
+                "oa" : ["boat", "coat", "goal", "soap"]}
+}
