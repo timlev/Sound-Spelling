@@ -1,4 +1,9 @@
 var lesson = {
   "images/cat.jpg": ["c.mp3", "a.mp3", "t.mp3"],
-  "images/bat.jpg": ["b.mp3", "a.mp3", "t.mp3"]
+  "images/bat.jpg": ["b.mp3", "a.mp3", "t.mp3"],
+  "images/rat.jpg": ["r.mp3", "a.mp3", "t.mp3"],
+  "images/sat.png": ["s.mp3", "a.mp3", "t.mp3"],
+  "images/pat.jpg": ["p.mp3", "a.mp3", "t.mp3"],
+  "images/mat.jpg": ["m.mp3", "a.mp3", "t.mp3"],
+  "images/fat.jpg": ["f.mp3", "a.mp3", "t.mp3"]
 };
