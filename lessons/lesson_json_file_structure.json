@@ -1,0 +1,8 @@
+#JSON File Structure
+
+
+var lesson = {
+	{snd : "soundfile.mp3",
+	pic : "picturefile.png",
+	ltrs : ["a.mp3", "t.mp3"]}
+}
