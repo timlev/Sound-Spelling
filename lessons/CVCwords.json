@@ -7,3 +7,18 @@ var lesson = {
   "images/mat.jpg": ["m.mp3", "a.mp3", "t.mp3"],
   "images/fat.jpg": ["f.mp3", "a.mp3", "t.mp3"]
 };
+
+var ap_lesson = {
+  "images/sap.jpg": ["s.mp3", "a.mp3", "p.mp3"],
+  "images/tap.jpg": ["t.mp3", "a.mp3", "p.mp3"],
+  "images/map.jpg": ["m.mp3", "a.mp3", "p.mp3"],
+  "images/rap.jpg": ["r.mp3", "a.mp3", "p.mp3"],
+  "images/lap.jpg": ["l.mp3", "a.mp3", "p.mp3"],
+  "images/nap.jpg": ["n.mp3", "a.mp3", "p.mp3"],
+  "images/gap.jpg": ["g.mp3", "a.mp3", "p.mp3"],
+  "images/zap.jpg": ["z.mp3", "a.mp3", "p.mp3"],
+  "images/cap.jpg": ["c.mp3", "a.mp3", "p.mp3"],
+  "images/yap.jpg": ["y.mp3", "a.mp3", "p.mp3"]
+};
+
+

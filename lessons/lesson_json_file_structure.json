@@ -1,8 +1,6 @@
-#JSON File Structure
-
-
-var lesson = { title : "Sample Lesson, words :
-	{{snd : "soundfile.mp3",
-	pic : "picturefile.png",
-	ltrs : ["a.mp3", "t.mp3"]}}
-}
+var lesson = { "title" : "Sample Lesson", "words" :
+	[{"word" : "cat",
+	"snd" : "cat.mp3",
+	"pic" : "cat.jpg",
+	"ltrs" : ["c.mp3","a.mp3", "t.mp3"]}
+]}
