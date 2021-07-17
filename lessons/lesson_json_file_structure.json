@@ -1,6 +1,10 @@
-var lesson = { "title" : "Sample Lesson", "words" :
-	[{"word" : "cat",
-	"snd" : "cat.mp3",
-	"pic" : "cat.jpg",
-	"ltrs" : ["c.mp3","a.mp3", "t.mp3"]}
+var lesson = { "title" : "", "words" :
+	[{"word" : "",
+	"snd" : ".mp3",
+	"pic" : "",
+	"ltrs" : [".mp3"]}
+]}
+
+var lesson = { "title" : "", "words" :
+	[{"word" : "", "snd" : ".mp3", "pic" : "", "ltrs" : [".mp3"]}
 ]}

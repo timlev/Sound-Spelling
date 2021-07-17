@@ -1,4 +1,4 @@
-var lesson = {
-  "images/cane.jpg": ["c.mp3", "long_a.mp3", "n.mp3","magic_e"],
-  "images/can.jpg": ["c.mp3", "a.mp3", "n.mp3"]
-};
+var lesson = { "title" : "Short A, Long A", "words" :
+  	[{"word" : "cane", "snd" : "cane.mp3", "pic" : "cane.jpg", "ltrs" : ["c.mp3", "long_a.mp3", "n.mp3","magic_e"]},
+     {"word" : "can", "snd" : "can.mp3", "pic" : "can.jpg", "ltrs" : ["c.mp3", "a.mp3", "n.mp3"]}
+]};

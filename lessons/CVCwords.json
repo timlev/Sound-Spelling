@@ -1,24 +1,25 @@
-var lesson = {
-  "images/cat.jpg": ["c.mp3", "a.mp3", "t.mp3"],
-  "images/bat.jpg": ["b.mp3", "a.mp3", "t.mp3"],
-  "images/rat.jpg": ["r.mp3", "a.mp3", "t.mp3"],
-  "images/sat.png": ["s.mp3", "a.mp3", "t.mp3"],
-  "images/pat.jpg": ["p.mp3", "a.mp3", "t.mp3"],
-  "images/mat.jpg": ["m.mp3", "a.mp3", "t.mp3"],
-  "images/fat.jpg": ["f.mp3", "a.mp3", "t.mp3"]
-};
+var lesson = { "title" : "-at Family Words", "words" :
+	[{"word" : "cat", "snd" : "cat.mp3", "pic" : "cat.jpg", "ltrs" : ["c.mp3", "a.mp3", "t.mp3"]},
+   {"word" : "bat", "snd" : "bat.mp3", "pic" : "bat.jpg", "ltrs" : ["b.mp3", "a.mp3", "t.mp3"]},
+   {"word" : "rat", "snd" : "rat.mp3", "pic" : "rat.jpg", "ltrs" : ["r.mp3", "a.mp3", "t.mp3"]},
+   {"word" : "sat", "snd" : "sat.mp3", "pic" : "sat.png", "ltrs" : ["s.mp3", "a.mp3", "t.mp3"]},
+   {"word" : "pat", "snd" : "pat.mp3", "pic" : "pat.jpg", "ltrs" : ["p.mp3", "a.mp3", "t.mp3"]},
+   {"word" : "mat", "snd" : "mat.mp3", "pic" : "mat.jpg", "ltrs" : ["m.mp3", "a.mp3", "t.mp3"]},
+   {"word" : "fat", "snd" : "fat.mp3", "pic" : "fat.jpg", "ltrs" : ["f.mp3", "a.mp3", "t.mp3"]}
+]}
 
-var ap_lesson = {
-  "images/sap.jpg": ["s.mp3", "a.mp3", "p.mp3"],
-  "images/tap.jpg": ["t.mp3", "a.mp3", "p.mp3"],
-  "images/map.jpg": ["m.mp3", "a.mp3", "p.mp3"],
-  "images/rap.jpg": ["r.mp3", "a.mp3", "p.mp3"],
-  "images/lap.jpg": ["l.mp3", "a.mp3", "p.mp3"],
-  "images/nap.jpg": ["n.mp3", "a.mp3", "p.mp3"],
-  "images/gap.jpg": ["g.mp3", "a.mp3", "p.mp3"],
-  "images/zap.jpg": ["z.mp3", "a.mp3", "p.mp3"],
-  "images/cap.jpg": ["c.mp3", "a.mp3", "p.mp3"],
-  "images/yap.jpg": ["y.mp3", "a.mp3", "p.mp3"]
-};
+
+var ap_lesson = { "title" : "-ap Family Words", "words" :
+  [{"word" : "sap", "snd" : "sap.mp3", "pic" : "sap.jpg", "ltrs" : ["s.mp3", "a.mp3", "p.mp3"]},
+   {"word" : "tap", "snd" : "tap.mp3", "pic" : "tap.jpg", "ltrs" : ["t.mp3", "a.mp3", "p.mp3"]},
+   {"word" : "map", "snd" : "map.mp3", "pic" : "map.jpg", "ltrs" : ["m.mp3", "a.mp3", "p.mp3"]},
+   {"word" : "rap", "snd" : "rap.mp3", "pic" : "rap.jpg", "ltrs" : ["r.mp3", "a.mp3", "p.mp3"]},
+   {"word" : "lap", "snd" : "lap.mp3", "pic" : "lap.jpg", "ltrs" : ["l.mp3", "a.mp3", "p.mp3"]},
+   {"word" : "nap", "snd" : "nap.mp3", "pic" : "nap.jpg", "ltrs" : ["n.mp3", "a.mp3", "p.mp3"]},
+   {"word" : "gap", "snd" : "gap.mp3", "pic" : "gap.jpg", "ltrs" : ["g.mp3", "a.mp3", "p.mp3"]},
+   {"word" : "zap", "snd" : "zap.mp3", "pic" : "zap.jpg", "ltrs" : ["z.mp3", "a.mp3", "p.mp3"]},
+   {"word" : "cap", "snd" : "cap.mp3", "pic" : "cap.jpg", "ltrs" : ["c.mp3", "a.mp3", "p.mp3"]},
+   {"word" : "yap", "snd" : "yap.mp3", "pic" : "yap.jpg", "ltrs" : ["y.mp3", "a.mp3", "p.mp3"]}
+]};
 
 

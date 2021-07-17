@@ -14,19 +14,24 @@ function play_answer(event) {
 }
 
 function loadpic(index) {
-  var item = Object.keys(lesson)[index];
   var pic = document.getElementById("pic");
-  // console.log(pic);
-  pic.src = item;
+  //console.log(lesson["words"][index]["pic"]);
+  pic.src = "images/" + lesson["words"][index]["pic"];
+}
+
+function settitle(title){
+  document.getElementById("title").innerText = title;
 }
 
 function createanswerboxes(index) {
-  var item = Object.keys(lesson)[index];
-  for (var letter in lesson[item]) {
+  //var item = Object.keys(lesson)[index];
+  var item = lesson["words"][index];
+  console.log(item);
+  for (var letter in item["ltrs"]) {
     lettersremaining += 1;
-    console.log(lesson[item][letter]);
+    //console.log(lesson[item][letter]);
     var box = document.createElement("td");
-    box.id = lesson[item][letter];
+    box.id = item["ltrs"][letter];
     box.classList.add("destination");
     document.getElementById("answerrow").appendChild(box);
     console.log(document.getElementById("answerrow"));
@@ -59,8 +64,10 @@ function hard_mode_check(){
 }
 
 function playword(index) {
-  var item = Object.keys(lesson)[index];
-  var wordsound = item.replace("images/", "wordsounds/").replace(".jpg", ".mp3").replace(".gif", ".mp3").replace(".png", ".mp3");
+  //var item = Object.keys(lesson)[index];
+  var item = lesson["words"][index];
+  //var wordsound = item.replace("images/", "wordsounds/").replace(".jpg", ".mp3").replace(".gif", ".mp3").replace(".png", ".mp3");
+  wordsound = "wordsounds/" + item["snd"];
   document.getElementById("wordsound").src = wordsound;
   document.getElementById("wordsound").autoplay = true;
   document.getElementById("wordsound").load();
@@ -68,9 +75,10 @@ function playword(index) {
 }
 
 function loadanswer(index) {
-  var item = Object.keys(lesson)[index];
-  var word = item.replace("images/", "").replace(".jpg", "").replace(".gif", "").replace(".png", "");
-  console.log(word);
+  var item = lesson["words"][index];
+  var word = item["word"];
+ // var word = item.replace("images/", "").replace(".jpg", "").replace(".gif", "").replace(".png", "");
+ // console.log(word);
   createanswerboxes(index);
   playword(index);
   hard_mode_check();
@@ -82,6 +90,7 @@ function onload() {
 
 function redraw_lesson() {
   document.getElementById("answerrow").innerHTML = '';
+  settitle(lesson["title"]);
   loadpic(index);
   loadanswer(index);
   hard_mode_check();
@@ -91,9 +100,9 @@ function redraw_lesson() {
   vowel_digraph();
 }
 function magic_e(){
-  console.log("Lesson index: " + lesson[Object.keys(lesson)[index]]);
-  console.log(Object.values(lesson)[index].includes("magic_e"));
-  if (Object.values(lesson)[index].includes("magic_e")){
+  console.log("Lesson index: " + lesson["words"][index]);
+  console.log(lesson["words"][index]["ltrs"].includes("magic_e"));
+  if (lesson["words"][index]["ltrs"].includes("magic_e")){
     console.log("Has magic e");
     //Change vowel sounds to long vowel sounds and removes sound from e
     document.getElementById("audio_e").src = "";
